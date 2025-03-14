@@ -27,6 +27,10 @@ jobs:
           unzip sonar-scanner.zip
           sudo mv sonar-scanner-5.0.1.3006-linux /opt/sonar-scanner
           echo "/opt/sonar-scanner/bin" >> $GITHUB_PATH
+<<<<<<< HEAD
+=======
+          export PATH="/opt/sonar-scanner/bin:$PATH"
+>>>>>>> 118d8c5 (Add SonarQube workflow with correct organization key)
 
       - name: SonarQube Scan
         env:
