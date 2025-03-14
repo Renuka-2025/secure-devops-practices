@@ -19,6 +19,15 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Install Sonar Scanner
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-17-jre
+          curl -Lo sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+          unzip sonar-scanner.zip
+          sudo mv sonar-scanner-5.0.1.3006-linux /opt/sonar-scanner
+          echo "/opt/sonar-scanner/bin" >> $GITHUB_PATH
+
       - name: SonarQube Scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -28,3 +37,4 @@ jobs:
             -Dsonar.sources=. \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.login=$SONAR_TOKEN
+
