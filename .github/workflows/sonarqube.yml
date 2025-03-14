@@ -27,20 +27,14 @@ jobs:
           unzip sonar-scanner.zip
           sudo mv sonar-scanner-5.0.1.3006-linux /opt/sonar-scanner
           echo "/opt/sonar-scanner/bin" >> $GITHUB_PATH
-<<<<<<< HEAD
-=======
-          export PATH="/opt/sonar-scanner/bin:$PATH"
->>>>>>> 118d8c5 (Add SonarQube workflow with correct organization key)
 
       - name: SonarQube Scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          sonar-scanner \
+          /opt/sonar-scanner/bin/sonar-scanner \
             -Dsonar.projectKey=secure-devops-practices \
             -Dsonar.organization=renuka-2025 \
             -Dsonar.sources=. \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.login=$SONAR_TOKEN
-
-
