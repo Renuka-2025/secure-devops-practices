@@ -34,7 +34,9 @@ jobs:
         run: |
           sonar-scanner \
             -Dsonar.projectKey=secure-devops-practices \
+            -Dsonar.organization=renuka-2025 \
             -Dsonar.sources=. \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.login=$SONAR_TOKEN
+
 
