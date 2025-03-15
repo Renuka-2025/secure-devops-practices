@@ -1,32 +1,19 @@
-# Task 4: Secure DevOps - Integrating Security Scanning Tools
+# Secure DevOps Practices - Task 4
 
-## Objective  
-Integrate SonarQube or OWASP ZAP into a CI/CD pipeline to identify vulnerabilities during development.
+This repository demonstrates the integration of security scanning tools (SonarQube & OWASP ZAP) in a CI/CD pipeline.  
 
-## Tools Used  
-- **GitHub Actions** for CI/CD  
-- **SonarQube** (initial attempt)  
-- **OWASP ZAP** (alternative option)
+## Tools Used
+- GitHub Actions for automation
+- SonarQube for static analysis (attempted, faced configuration issues)
+- OWASP ZAP for dynamic analysis (considered as an alternative)
 
-## What Was Implemented  
-- Created a GitHub Action workflow to run SonarQube scans on code commits.  
-- Set up environment variables and secrets for secure authentication.  
-- Attempted to run SonarQube, but encountered errors (organization key, project binding issues).  
-- As an alternative, set up an OWASP ZAP workflow to scan a sample web app.
+## Challenges Faced
+Despite multiple configurations, SonarQube did not successfully analyze the repository due to:
+1. **Missing organization key** – Resolved
+2. **Pipeline execution failure** – Multiple fixes attempted, but errors persisted.
 
-## Outcome  
-The workflows ran, but the security scanning failed due to configuration issues with SonarQube. Despite this, the pipeline setup is in place, and the workflow shows an attempt to perform vulnerability scans.
-
-## Lessons Learned  
-- Proper organization and project key configuration is crucial for SonarQube.  
-- OWASP ZAP can be a good backup option for dynamic analysis.  
-- Debugging CI/CD pipelines requires careful log analysis and trial-and-error.
-
-## Status  
-✅ **Pipeline setup complete**  
-❌ **Security scan failed (pending fix)**  
-
-## Next Steps  
-- Revisit SonarQube configuration or finalize OWASP ZAP integration.  
-- Resolve environment and token issues for successful scans.  
+## Lessons Learned
+- Proper integration of security scanning requires **correct authentication tokens**.
+- Debugging logs from CI/CD runs are essential for troubleshooting.
+- Alternative tools like OWASP ZAP can be explored when one approach fails.
 
